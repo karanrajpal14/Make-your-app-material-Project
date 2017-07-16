@@ -40,7 +40,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="@dimen/detail_card_top_margin"
+                android:layout_marginTop="@dimen/detail_photo_height"
                 android:background="#fff"
                 android:elevation="3dp"
                 android:maxWidth="@dimen/detail_card_max_width"
@@ -67,7 +67,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:lineSpacingMultiplier="0.9"
                         android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:textColor="@color/textPrimary"
+                        android:textColor="#fff"
                         android:textSize="@dimen/detail_title_text_size"
                         android:textStyle="bold"/>
 
@@ -76,7 +76,7 @@
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#424242"/>
+                        android:textColor="#fff"/>
                 </LinearLayout>
 
                 <TextView
