@@ -235,14 +235,19 @@ public class ArticleDetailFragment extends Fragment implements
                         public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
-                                Palette p = Palette.generate(bitmap, 12);
-                                mMutedColor = p.getDarkMutedColor(0xFF333333);
-                                mPhotoView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
-                                mPhotoView.setImageUrl(mCursor.getString(ArticleLoader.Query.THUMB_URL), ImageLoaderHelper.getInstance(getContext()).getImageLoader());
+//                                Palette p = Palette.generate(bitmap, 12);
+	                            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+		                            @Override
+		                            public void onGenerated(Palette palette) {
+			                            mMutedColor = palette.getDarkMutedColor(0xFF333333);
+			                            mPhotoView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+			                            mPhotoView.setImageUrl(mCursor.getString(ArticleLoader.Query.THUMB_URL), ImageLoaderHelper.getInstance(getContext()).getImageLoader());
 
-                                mRootView.findViewById(R.id.meta_bar)
-                                        .setBackgroundColor(mMutedColor);
-                                updateStatusBar();
+			                            mRootView.findViewById(R.id.meta_bar)
+					                            .setBackgroundColor(mMutedColor);
+			                            updateStatusBar();
+		                            }
+	                            });
                             }
                         }
 
