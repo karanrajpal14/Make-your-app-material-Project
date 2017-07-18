@@ -9,9 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/photo_container"
@@ -24,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                     />
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -37,10 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="@dimen/detail_photo_height"
+                android:layout_margin="5dp"
                 android:background="#fff"
                 android:elevation="3dp"
                 android:maxWidth="@dimen/detail_card_max_width"
@@ -89,11 +87,12 @@
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColor="@color/textPrimary"
-                    android:textColorLink="@color/accent"
                     android:textSize="@dimen/detail_body_text_size"/>
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </FrameLayout>
+
+        </LinearLayout>
+
     </com.example.xyzreader.ui.ObservableScrollView>
 
     <android.support.design.widget.FloatingActionButton
