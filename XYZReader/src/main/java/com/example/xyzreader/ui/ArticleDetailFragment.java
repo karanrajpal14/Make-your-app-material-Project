@@ -226,7 +226,7 @@ public class ArticleDetailFragment extends Fragment implements
                         @RequiresApi(api = Build.VERSION_CODES.M)
                         @Override
                         public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
-                            Bitmap bitmap = imageContainer.getBitmap();
+                            final Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
 //                                Palette p = Palette.generate(bitmap, 12);
 	                            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
@@ -234,7 +234,7 @@ public class ArticleDetailFragment extends Fragment implements
 		                            public void onGenerated(Palette palette) {
 			                            mMutedColor = palette.getDarkMutedColor(0xFF333333);
 			                            mPhotoView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
-			                            mPhotoView.setImageUrl(mCursor.getString(ArticleLoader.Query.THUMB_URL), ImageLoaderHelper.getInstance(getContext()).getImageLoader());
+                                        mPhotoView.setImageBitmap(bitmap);
 
 			                            mRootView.findViewById(R.id.meta_bar)
 					                            .setBackgroundColor(mMutedColor);
